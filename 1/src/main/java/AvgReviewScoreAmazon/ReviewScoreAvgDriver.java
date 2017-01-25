@@ -17,12 +17,12 @@ import org.apache.hadoop.io.Text;
 
 import org.apache.log4j.Logger;
 
-public class WordCount extends Configured implements Tool {
+public class ReviewScoreAvgDriver extends Configured implements Tool {
 
-  private static final Logger LOG = Logger.getLogger(WordCount.class);
+  private static final Logger LOG = Logger.getLogger(ReviewScoreAvgDriver.class);
 
   public static void main(String[] args) throws Exception {
-    int res = ToolRunner.run(new WordCount(), args);
+    int res = ToolRunner.run(new ReviewScoreAvgDriver(), args);
     System.exit(res);
   }
 
@@ -39,6 +39,7 @@ public class WordCount extends Configured implements Tool {
     return job.waitForCompletion(true) ? 0 : 1;
   }
 
+  //TODO DELETE THIS
   public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
     private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
