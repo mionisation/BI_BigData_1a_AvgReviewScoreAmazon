@@ -4,5 +4,6 @@
 ReviewScoreMapper.java - This class has the mapper function. It takes every line of the .csv input file in and saves product id as key and rating as value. It scales linearly with increasing input size.
 AvgReducer.java - This class sums up all ratings of one product and computes the average, it also scales linearly
 ReviewScoreAvgDriver.java - This driver starts the hadoop job using the mapper and reducer class
+We chose to work with DoubleWritables in all steps as we need a division for the average.
 
 We chose the categories "Android apps", "movies and TV" and "video games", the results are in the respective .txt files.
