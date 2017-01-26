@@ -7,3 +7,7 @@ ReviewScoreAvgDriver.java - This driver starts the hadoop job using the mapper a
 We chose to work with DoubleWritables in all steps as we need a division for the average.
 
 We chose the categories "Android apps", "movies and TV" and "video games", the results are in the respective .txt files.
+
+The jar can be executed as a hadoop job as follows:
+hadoop jar AvgReviewScoreAmazon.jar AvgReviewScoreAmazon.ReviewScoreAvgDriver /amazon/ratingsOnly/ratings_Video_Games.csv /amazon/output
+
