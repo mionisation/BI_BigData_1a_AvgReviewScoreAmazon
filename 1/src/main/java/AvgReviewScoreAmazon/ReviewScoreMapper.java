@@ -8,6 +8,13 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class ReviewScoreMapper extends Mapper<LongWritable, Text, Text, DoubleWritable> {   
 
+	/**
+	 * Extract the product number and its rating from the line of text
+	 * provided. 
+	 * Writes key-value pair (product number, rating) to the context for
+	 * subsequent operations.
+	 */
+	@Override
     public void map(LongWritable offset, Text lineText, Context context)
         throws IOException, InterruptedException {
       String line = lineText.toString();

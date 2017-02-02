@@ -6,6 +6,13 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 public class AvgReducer  extends Reducer<Text, DoubleWritable, Text, DoubleWritable> {
+	
+	/**
+	 * Iterates through the ratings that are defined for a certain product
+	 * number. Sums up the ratings and divides it by the number of ratings to
+	 * obtain the average rating.
+	 * The product and its average rating is written to the context.
+	 */
     @Override
     public void reduce(Text word, Iterable<DoubleWritable> counts, Context context)
         throws IOException, InterruptedException {
@@ -15,7 +22,7 @@ public class AvgReducer  extends Reducer<Text, DoubleWritable, Text, DoubleWrita
         sum += count.get();
         amount++;
       }
-     sum /= amount;
+      sum /= amount;
       context.write(word, new DoubleWritable(sum));
     }
   }
